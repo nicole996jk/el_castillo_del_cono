@@ -28,6 +28,7 @@
 
     <!-- stilos del carro de envios -->
     <link rel="stylesheet" href="css/style.css ">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -37,6 +38,27 @@
             <a href="index.html" class="navbar-brand px-lg-4 m-0">
                 <h1 class="m-0 display-4 text-uppercase text-white">El Castillo Del Cono</h1>
             </a>
+            <button id="openRegister" class="btn-register" style="padding: 14px; font-size: 15px; width: auto;">Registrarse</button>
+            <div id="registerModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Registrarse</h2>
+                <label for="reg-username">Usuario:</label>
+                <input type="text" id="reg-username" placeholder="Elige un usuario">
+                
+                <label for="reg-email">Correo:</label>
+                <input type="email" id="reg-email" placeholder="Ingresa tu correo">
+                
+                <label for="reg-password">Contraseña:</label>
+                <input type="password" id="reg-password" placeholder="Crea una contraseña">
+                
+                <label for="reg-confirm-password">Confirmar Contraseña:</label>
+                <input type="password" id="reg-confirm-password" placeholder="Repite la contraseña">
+                
+                <button id="registerButton">Registrarse</button>
+                <p id="reg-error" style="color: red;"></p>
+            </div>
+            </div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -47,7 +69,7 @@
                     <a href="service.html" class="nav-item nav-link active">Servicios</a>
                     <a href="menu.html" class="nav-item nav-link">Menú</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pagos</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Reservaciones</a>
                         <div class="dropdown-menu text-capitalize">
                             <a href="reservation.html" class="dropdown-item">Reservacion</a>
                             <a href="Conf-Reserva.html" class="dropdown-item">Reserva Confirmada</a>
@@ -76,10 +98,7 @@
 </div>
 <!-- Page Header End -->
 
-        <!-- Page Header End -->
-
-    <!-- Botón flotante con icono de camión de carga -->
-
+<!-- Botón flotante con icono de camión de carga -->
 <button class="pedido-btn" onclick="abrirFormulario()">
     <i class="fas fa-truck"></i>
 </button>
@@ -92,12 +111,14 @@
         </button>
         <h2>Pedido a Domicilio</h2>
 
-        <form>
+        <form id="pedidoForm">
             <label for="direccion">Dirección de Entrega:</label>
             <textarea id="direccion" name="direccion" placeholder="Ejemplo: Calle, Distrito o direccion de casa" required></textarea>
+            <div id="direccionError" class="error-message"></div>
 
             <label for="telefono">Teléfono de Contacto:</label>
-            <input type="tel" id="telefono" name="telefono"  placeholder="Numero"required>
+            <input type="tel" id="telefono" name="telefono" placeholder="Número" required>
+            <div id="telefonoError" class="error-message"></div>
 
             <label for="producto">Producto:</label>
             <select id="producto" name="producto" required>
@@ -111,20 +132,25 @@
                     <option value="Barquillos">Barquillos</option>
                 </optgroup>
             </select>
-            
+            <div id="productoError" class="error-message"></div>
+
             <label for="cantidad">Cantidad:</label>
-            <input type="number" id="cantidad" name="cantidad" min="1"  placeholder="Seleccione o digite una cantidad" required>
+            <input type="number" id="cantidad" name="cantidad" min="1" placeholder="Seleccione o digite una cantidad" required>
+            <div id="cantidadError" class="error-message"></div>
 
             <label for="metodo-pago">Método de Pago:</label>
             <select id="metodo-pago" name="metodo-pago" required>
                 <option value="tarjeta">Tarjeta</option>
                 <option value="paypal">PayPal</option>
                 <option value="efectivo">Efectivo</option>
-            </select>   
+            </select>
+            <div id="metodoPagoError" class="error-message"></div>
+
             <button type="submit">Realizar Pedido</button>
         </form>
     </div>
 </div>
+
 
 
     <!-- Inicio del servicio -->
@@ -165,8 +191,8 @@
         </div>
     </div>
     <!-- fin -->
-    
 
+   
    <!-- Footer Start -->
    <div class="container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom px-0 position-relative overlay-top" 
    style="background-image: url('img/header.jpg'); background-size: cover; background-position: center;">
@@ -181,12 +207,10 @@
         <div class="col-lg-3 col-md-6 mb-5">
             <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos</h4>
             <p>En nuestras redes </p>
-            <div class="d-flex justify-content-start" >
                 <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
-            </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
             <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Horario de atención</h4>
@@ -221,6 +245,8 @@
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+    <script src="login.js"></script>
+    <script src="domicilio.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

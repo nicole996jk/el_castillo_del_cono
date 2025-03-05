@@ -24,6 +24,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <!-- Incluir SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -36,6 +37,27 @@
             <a href="index.html" class="navbar-brand px-lg-4 m-0">
                 <h1 class="m-0 display-4 text-uppercase text-white">El Castillo Del Cono</h1>
             </a>
+            <button id="openRegister" class="btn-register" style="padding: 14px; font-size: 15px; width: auto;">Registrarse</button>
+            <div id="registerModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Registrarse</h2>
+                <label for="reg-username">Usuario:</label>
+                <input type="text" id="reg-username" placeholder="Elige un usuario">
+                
+                <label for="reg-email">Correo:</label>
+                <input type="email" id="reg-email" placeholder="Ingresa tu correo">
+                
+                <label for="reg-password">Contraseña:</label>
+                <input type="password" id="reg-password" placeholder="Crea una contraseña">
+                
+                <label for="reg-confirm-password">Confirmar Contraseña:</label>
+                <input type="password" id="reg-confirm-password" placeholder="Repite la contraseña">
+                
+                <button id="registerButton">Registrarse</button>
+                <p id="reg-error" style="color: red;"></p>
+            </div>
+            </div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,7 +68,7 @@
                     <a href="service.html" class="nav-item nav-link">Servicios</a>
                     <a href="menu.html" class="nav-item nav-link active">Menú</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pagos</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Reservaciones</a>
                         <div class="dropdown-menu text-capitalize">
                             <a href="reservation.html" class="dropdown-item">Reservacion</a>
                             <a href="Conf-Reserva.html" class="dropdown-item">Reserva Confirmada</a>
@@ -204,7 +226,6 @@
     </div>
     
     <!-- Modal -->
-    <!-- Modal -->
     <div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -232,16 +253,11 @@
             </div>
         </div>
     </div>
-<script>
-        //modal de orden
-  
-
-    </script>
     
-    <!-- fin de la orden -->
+    <!-- fin del modal -->
 
 
-   
+
    <!-- Footer Start -->
    <div class="container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom px-0 position-relative overlay-top" 
    style="background-image: url('img/header.jpg'); background-size: cover; background-position: center;">
@@ -256,12 +272,10 @@
         <div class="col-lg-3 col-md-6 mb-5">
             <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos</h4>
             <p>En nuestras redes </p>
-            <div class="d-flex justify-content-start" >
                 <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
-            </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
             <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Horario de atención</h4>
@@ -297,6 +311,7 @@
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+    <script src="login.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

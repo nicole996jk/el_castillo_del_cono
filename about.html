@@ -24,6 +24,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -33,6 +34,27 @@
             <a href="index.html" class="navbar-brand px-lg-4 m-0">
                 <h1 class="m-0 display-4 text-uppercase text-white">El Castillo Del Cono</h1>
             </a>
+            <button id="openRegister" class="btn-register" style="padding: 14px; font-size: 15px; width: auto;">Registrarse</button>
+            <div id="registerModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Registrarse</h2>
+                <label for="reg-username">Usuario:</label>
+                <input type="text" id="reg-username" placeholder="Elige un usuario">
+                
+                <label for="reg-email">Correo:</label>
+                <input type="email" id="reg-email" placeholder="Ingresa tu correo">
+                
+                <label for="reg-password">Contraseña:</label>
+                <input type="password" id="reg-password" placeholder="Crea una contraseña">
+                
+                <label for="reg-confirm-password">Confirmar Contraseña:</label>
+                <input type="password" id="reg-confirm-password" placeholder="Repite la contraseña">
+                
+                <button id="registerButton">Registrarse</button>
+                <p id="reg-error" style="color: red;"></p>
+            </div>
+            </div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,7 +65,7 @@
                     <a href="service.html" class="nav-item nav-link">Servicios</a>
                     <a href="menu.html" class="nav-item nav-link">Menú</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pagos</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Reservaciones</a>
                         <div class="dropdown-menu text-capitalize">
                             <a href="reservation.html" class="dropdown-item">Reservacion</a>
                             <a href="Conf-Reserva.html" class="dropdown-item">Reserva Confirmada</a>
@@ -103,7 +125,108 @@
     </div>
     <!-- About End -->
 
+      <!-- Formulario de Comentarios y Valoraciones -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="p-5 bg-light shadow rounded">
+                <h2 class="text-center text-primary mb-4">Déjanos tu comentario</h2>
+                <p class="text-center">Queremos saber tu opinión sobre nuestra heladería. ¡Tu retroalimentación es importante para mejorar nuestro servicio!</p>
+                
+                <form id="feedbackForm">
+                    <!-- Selección de calificación -->
+                    <div class="form-group mb-3">
+                        <label for="rating" class="form-label">Califica tu experiencia:</label>
+                        <select class="form-select" id="rating">
+                            <option value="" disabled selected>Selecciona una calificación</option>
+                            <option value="5">⭐⭐⭐⭐⭐ - Excelente</option>
+                            <option value="4">⭐⭐⭐⭐ - Muy bueno</option>
+                            <option value="3">⭐⭐⭐ - Bueno</option>
+                            <option value="2">⭐⭐ - Regular</option>
+                            <option value="1">⭐ - Malo</option>
+                        </select>
+                        <div class="text-danger mt-1" id="ratingError" style="display: none;">Por favor, selecciona una calificación.</div>
+                    </div>
 
+                    <!-- Comentario del usuario -->
+                    <div class="form-group mb-3">
+                        <label for="comment" class="form-label">Tu comentario:</label>
+                        <textarea class="form-control" id="comment" rows="4" placeholder="Escribe tu opinión aquí..."></textarea>
+                        <div class="text-danger mt-1" id="commentError" style="display: none;">El comentario debe tener al menos 10 caracteres.</div>
+                    </div>
+
+                    <!-- Botón de envío -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                    </div>
+                </form>
+
+                <!-- Mensaje de confirmación -->
+                <div id="feedbackMessage" class="mt-4 text-center text-success" style="display: none;">
+                    ¡Gracias por tu comentario! 😊
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+      <!-- Testimonial Start -->
+      <div class="container-fluid py-5">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Comentarios de</h4>
+                <h1 class="display-4">Nuestros clientes </h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/testimonial-1.jpg" alt="">
+                        <div class="ml-3">
+                            <h4>Ana Chavez</h4>
+                            <i>Cocinera</i>
+                        </div>
+                    </div>
+                    <p class="m-0">"Una experiencia fantástica. El ambiente es fresco y acogedor, los helados son deliciosos y la atención es excelente".</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/testimonial-2.jpg" alt="">
+                        <div class="ml-3">
+                            <h4>Rene Núñez</h4>
+                            <i>Policia</i>
+                        </div>
+                    </div>
+                    <p class="m-0">"La calidad de los helados es excepcional. Se nota que utilizan los mejores ingredientes y los preparan con dedicación".</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/joven.jpg" alt="">
+                        <div class="ml-3">
+                            <h4>Carlos Hernandez</h4>
+                            <i>Emprendedor</i>
+                        </div>
+                    </div>
+                    <p class="m-0">"Me encanta venir aquí a trabajar o reunirme con amigos. La conexión Wi-Fi es excelente y la variedad de helados es perfecta para un dia caluroso. ¡Totalmente recomendado!"</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="img/joven.jpg" alt="">
+                        <div class="ml-3">
+                            <h4>Adrian Molina</h4>
+                            <i>Estudiante</i>
+                        </div>
+                    </div>
+                    <p class="m-0">"Me encanta venir aquí a estudiar. La conexión Wi-Fi es buena. ¡Totalmente recomendado!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+    
+  
    <!-- Footer Start -->
    <div class="container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom px-0 position-relative overlay-top" 
    style="background-image: url('img/header.jpg'); background-size: cover; background-position: center;">
@@ -118,12 +241,10 @@
         <div class="col-lg-3 col-md-6 mb-5">
             <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos</h4>
             <p>En nuestras redes </p>
-            <div class="d-flex justify-content-start" >
                 <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
-            </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
             <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Horario de atención</h4>
@@ -158,6 +279,8 @@
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+    <script src="login.js"></script>
+    <script src="coment.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
