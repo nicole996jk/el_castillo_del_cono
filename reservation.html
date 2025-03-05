@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Heladeria</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 display-4 text-uppercase text-white">El Castillo Del Cono</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Acerca de</a>
+                    <a href="service.html" class="nav-item nav-link">Servicios</a>
+                    <a href="menu.html" class="nav-item nav-link">Menú</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pagos</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="reservation.html" class="dropdown-item">Reservacion</a>
+                            <a href="Conf-Reserva.html" class="dropdown-item">Reserva Confirmada</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header mb-5 position-relative overlay-bottom" style="background-image: url('img/helados-san-jeronimo.webp'); background-size: cover; background-position: center;">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Reservacion</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="">Inicio</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Reservacion</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Reservation Start -->
+<div class="container-fluid my-5">
+    <div class="container">
+        <div class="reservation position-relative overlay-top overlay-bottom"
+        style="background-image: url('img/header.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">    
+            <div class="row align-items-center">
+                <div class="col-lg-6 my-5 my-lg-0">
+                    <div class="p-5">
+                        <div class="mb-4">
+                            <h1 class="display-3 text-primary">
+                                30% de descuento</h1>
+                            <h1 class="text-white">Para reservas en línea</h1>
+                        </div>
+                        <p class="text-white">Disfruta de un 30% de descuento reservando en línea y vive una experiencia única con nuestro café 
+                            de especialidad. No te pierdas esta oportunidad de degustar los mejores sabores en un ambiente acogedor.</p>
+                        <ul class="list-inline text-white m-0">
+                            <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Café de especialidad de origen seleccionado</li>
+                            <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Atención personalizada para una experiencia inolvidable</li>
+                            <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Ambiente cálido y acogedor</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
+                        <h1 class="text-white mb-4 mt-5">Reserva tu mesa</h1>
+                        <form id="reservationForm" class="mb-5">
+                           
+                            <div class="form-group">
+                                <div class="date" id="date" data-target-input="nearest">
+                                    <input type="text" class="form-control bg-white border-primary p-4 datetimepicker-input" placeholder="Fecha" data-target="#date" data-toggle="datetimepicker" required="required" id="dateInput"/>
+                                    <div id="dateError" class="text-danger mt-2"></div> <!-- Error mensaje -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="time" id="time" data-target-input="nearest">
+                                    <input type="text" class="form-control bg-white border-primary p-4 datetimepicker-input" placeholder="Tiempo" data-target="#time" data-toggle="datetimepicker" required="required" id="timeInput"/>
+                                    <div id="timeError" class="text-danger mt-2"></div> <!-- Error mensaje -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <select class="custom-select bg-white border-primary px-4" style="height: 49px;" required="required" id="personsSelect">
+                                    <option value="" disabled selected>Selecciona la cantidad de personas</option>
+                                    <option value="1">1 Persona</option>
+                                    <option value="2">2 Personas</option>
+                                    <option value="3">3 Personas</option>
+                                    <option value="4">4 Personas</option>
+                                    <option value="5">5 Personas</option>
+                                    <option value="6">Más de 5 personas</option>
+                                    <option value="10">Más de 10 personas</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Reservar ahora</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- fin de la reservacion -->
+
+
+
+    
+   <!-- Footer Start -->
+   <div class="container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom px-0 position-relative overlay-top" 
+   style="background-image: url('img/header.jpg'); background-size: cover; background-position: center;">
+    <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">
+                Contactanos</h4>
+            <p><i class="fa fa-map-marker-alt mr-2"></i>El Paisnal, San Salvador</p>
+            <p><i class="fa fa-phone-alt mr-2"></i>+503 22506418</p>
+            <p class="m-0"><i class="fa fa-envelope mr-2"></i>CastilloDelCono@gmail.com</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos</h4>
+            <p>En nuestras redes </p>
+            <div class="d-flex justify-content-start" >
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Horario de atención</h4>
+            <div>
+                <h6 class="text-white text-uppercase">Lunes - Domingo</h6>
+                <p>7.00 AM - 8.00 PM</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Hoja informativa</h4>
+            <p>Quiénes Somos: Helados El Castillo Del Cono es un lugar único donde podrás disfrutar de helados artesanales hechos con ingredientes frescos y naturales. Ofrecemos una amplia variedad de sabores, desde los más clásicos hasta combinaciones innovadoras. Nuestro objetivo es ofrecerte una experiencia deliciosa y refrescante en un ambiente amigable y acogedor, ideal para compartir con amigos y familia.</p>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="reservation.js"></script>
+</body>
+
+</html>

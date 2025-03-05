@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Heladeria</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- stilos del carro de envios -->
+    <link rel="stylesheet" href="css/style.css ">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 display-4 text-uppercase text-white">El Castillo Del Cono</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                    <a href="index.html" class="nav-item nav-link">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Acerca de</a>
+                    <a href="service.html" class="nav-item nav-link active">Servicios</a>
+                    <a href="menu.html" class="nav-item nav-link">Menú</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pagos</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="reservation.html" class="dropdown-item">Reservacion</a>
+                            <a href="Conf-Reserva.html" class="dropdown-item">Reserva Confirmada</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    
+
+
+   <!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom" style="background-image: url('img/helado.jpg'); background-size: cover; background-position: center;">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Servicios</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="">Inicio</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Servicios</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+        <!-- Page Header End -->
+
+    <!-- Botón flotante con icono de camión de carga -->
+
+<button class="pedido-btn" onclick="abrirFormulario()">
+    <i class="fas fa-truck"></i>
+</button>
+
+<!-- Modal del formulario -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="cerrarFormulario()">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2>Pedido a Domicilio</h2>
+
+        <form>
+            <label for="direccion">Dirección de Entrega:</label>
+            <textarea id="direccion" name="direccion" placeholder="Ejemplo: Calle, Distrito o direccion de casa" required></textarea>
+
+            <label for="telefono">Teléfono de Contacto:</label>
+            <input type="tel" id="telefono" name="telefono"  placeholder="Numero"required>
+
+            <label for="producto">Producto:</label>
+            <select id="producto" name="producto" required>
+                <optgroup label="Cajas de Helado">
+                    <option value="Caja de Helado de vainilla">Caja de Helado de vainilla</option>
+                    <option value="Caja de Helado de fresa">Caja de Helado de fresa</option>
+                    <option value="Caja de Helado de chocolate">Caja de Helado de chocolate</option>
+                </optgroup>
+                <optgroup label="Conos">
+                    <option value="Conos wafle">Conos wafle</option>
+                    <option value="Barquillos">Barquillos</option>
+                </optgroup>
+            </select>
+            
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1"  placeholder="Seleccione o digite una cantidad" required>
+
+            <label for="metodo-pago">Método de Pago:</label>
+            <select id="metodo-pago" name="metodo-pago" required>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="paypal">PayPal</option>
+                <option value="efectivo">Efectivo</option>
+            </select>   
+            <button type="submit">Realizar Pedido</button>
+        </form>
+    </div>
+</div>
+
+
+    <!-- Inicio del servicio -->
+
+
+     <!-- Inicio del servicio -->
+     <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Nuestros Servicios</h4>
+                <h1 class="display-4">Sabores Unicos</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-sm-5">
+                            <img class="img-fluid mb-3 mb-sm-0" src="img/napolitano-container.jpg" alt="">
+                        </div>
+                        <div class="col-sm-7">
+                            <h4><i class="fa fa-truck service-icon"></i>Entrega a domicilio</h4>
+                            <p class="m-0">Recibe tu caja de helado favorito en la puerta de tu casa en el menor tiempo posible. Nos aseguramos de que llegue para que disfrutes una experiencia única.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-sm-5">
+                            <img class="img-fluid mb-3 mb-sm-0" src="img/napolitano-galleta.jpg" alt="">
+                        </div>
+                        <div class="col-sm-7">
+                            <h4><i class="fa fa-table service-icon "></i>Reserva de mesa en línea</h4>
+                            <p class="m-0">Planea tu visita sin preocupaciones. Con nuestro sistema de reservas en línea, asegura tu mesa y 
+                                disfruta de un ambiente acogedor con el mejor helado y un ambiente acogedor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fin -->
+    
+
+   <!-- Footer Start -->
+   <div class="container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom px-0 position-relative overlay-top" 
+   style="background-image: url('img/header.jpg'); background-size: cover; background-position: center;">
+    <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">
+                Contactanos</h4>
+            <p><i class="fa fa-map-marker-alt mr-2"></i>El Paisnal, San Salvador</p>
+            <p><i class="fa fa-phone-alt mr-2"></i>+503 22506418</p>
+            <p class="m-0"><i class="fa fa-envelope mr-2"></i>CastilloDelCono@gmail.com</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos</h4>
+            <p>En nuestras redes </p>
+            <div class="d-flex justify-content-start" >
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Horario de atención</h4>
+            <div>
+                <h6 class="text-white text-uppercase">Lunes - Domingo</h6>
+                <p>7.00 AM - 8.00 PM</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Hoja informativa</h4>
+            <p>Quiénes Somos: Helados El Castillo Del Cono es un lugar único donde podrás disfrutar de helados artesanales hechos con ingredientes frescos y naturales. Ofrecemos una amplia variedad de sabores, desde los más clásicos hasta combinaciones innovadoras. Nuestro objetivo es ofrecerte una experiencia deliciosa y refrescante en un ambiente amigable y acogedor, ideal para compartir con amigos y familia.</p>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+        function abrirFormulario() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function cerrarFormulario() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
