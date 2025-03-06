@@ -1,64 +1,73 @@
-// Función para abrir el formulario modal
-function abrirFormulario() {
-    document.getElementById('modal').style.display = 'block';
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const metodoEntrega = document.getElementById("metodo-entrega");
+    const direccion = document.getElementById("direccion");
+    const telefono = document.getElementById("telefono");
+    const cantidad = document.getElementById("cantidad");
+    const producto = document.getElementById("producto");
+    const telefonoError = document.getElementById("telefonoError");
 
-// Función para cerrar el formulario modal
-function cerrarFormulario() {
-    document.getElementById('modal').style.display = 'none';
-}
+    // Función para validar el teléfono
+    function validarTelefono() {
+        const telefonoValue = telefono.value;
+        const telefonoPattern = /^[0-9]{8}$/; // 8 dígitos numéricos
+        if (telefonoValue && !telefonoPattern.test(telefonoValue)) {
+            telefonoError.textContent = "El número de teléfono debe ser de 8 dígitos numéricos.";
+            return false;
+        } else {
+            telefonoError.textContent = "";
+            return true;
+        }
+    }
 
-// Función de validación del formulario
-document.querySelector('#pedidoForm').addEventListener('submit', function(event) {
-    // Obtener los campos del formulario
-    var direccion = document.getElementById('direccion');
-    var telefono = document.getElementById('telefono');
-    var producto = document.getElementById('producto');
-    var cantidad = document.getElementById('cantidad');
-    var metodoPago = document.getElementById('metodo-pago');
-    
-    // Limpiar mensajes de error previos
-    var errorMessages = document.querySelectorAll('.error-message');
-    errorMessages.forEach(function(error) {
-        error.textContent = '';
+    // Función para actualizar los campos según el método de entrega
+    function actualizarCampos() {
+        if (metodoEntrega.value === "Domicilio") {
+            direccion.removeAttribute("disabled");
+            telefono.removeAttribute("disabled");
+        } else {
+            direccion.setAttribute("disabled", "disabled");
+            telefono.setAttribute("disabled", "disabled");
+        }
+    }
+
+    // Validación de cantidad (mayor o igual a 1)
+    cantidad.addEventListener("input", function () {
+        if (cantidad.value < 1) {
+            cantidad.setCustomValidity("La cantidad debe ser mayor o igual a 1.");
+        } else {
+            cantidad.setCustomValidity(""); // Resetea la validación si la cantidad es válida
+        }
     });
-    
-    // Bandera para verificar si el formulario es válido
-    var isValid = true;
-    
-    // Validación de dirección
-    if (direccion.value.trim() === '') {
-        document.getElementById('direccionError').textContent = 'La dirección de entrega es requerida.';
-        isValid = false;
+
+    // Validar que los campos obligatorios son producto y cantidad
+    function validarFormulario(event) {
+        let valid = true;
+        
+        // Verificar producto
+        if (producto.value === "") {
+            valid = false;
+        }
+
+        // Validar cantidad
+        if (cantidad.value < 1) {
+            valid = false;
+        }
+
+        // Validar teléfono (8 dígitos)
+        if (!validarTelefono()) {
+            valid = false;
+        }
+
+        // Si no es válido, prevenir el envío del formulario
+        if (!valid) {
+            event.preventDefault();
+        }
     }
-    
-    // Validación de teléfono (8 dígitos)
-    var telefonoPattern = /^[0-9]{8}$/; // Validación de un número de teléfono de exactamente 8 dígitos
-    if (!telefonoPattern.test(telefono.value)) {
-        document.getElementById('telefonoError').textContent = 'Por favor, ingresa un número de teléfono válido de 8 dígitos.';
-        isValid = false;
-    }
-    
-    // Validación de producto
-    if (producto.value === '') {
-        document.getElementById('productoError').textContent = 'Por favor, selecciona un producto.';
-        isValid = false;
-    }
-    
-    // Validación de cantidad
-    if (cantidad.value < 1) {
-        document.getElementById('cantidadError').textContent = 'La cantidad debe ser mayor o igual a 1.';
-        isValid = false;
-    }
-    
-    // Validación de método de pago
-    if (metodoPago.value === '') {
-        document.getElementById('metodoPagoError').textContent = 'Por favor, selecciona un método de pago.';
-        isValid = false;
-    }
-    
-    // Si alguna validación falla, se evita el envío del formulario
-    if (!isValid) {
-        event.preventDefault();
-    }
+
+    // Ejecutar la función al enviar el formulario
+    const form = document.getElementById("pedidoForm");
+    form.addEventListener("submit", validarFormulario);
+
+    metodoEntrega.addEventListener("change", actualizarCampos);
+    actualizarCampos(); // Ejecutar al cargar la página
 });

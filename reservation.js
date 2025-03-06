@@ -18,13 +18,14 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
 
     // Validación de la fecha
     const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0); // Eliminar horas para comparar solo fechas
     const inputDate = new Date(dateInput); // Convierte la fecha ingresada a un objeto Date
 
     if (!dateInput) {
         dateError.textContent = "La fecha es obligatoria.";
         valid = false;
-    } else if (inputDate < currentDate) {
-        dateError.textContent = "La fecha no puede ser anterior a la fecha actual.";
+    } else if (inputDate < currentDate) { // Solo permite la fecha actual o futuras
+        dateError.textContent = "La fecha no puede ser anterior a hoy.";
         valid = false;
     } else if (inputDate.getFullYear() !== currentDate.getFullYear()) {
         dateError.textContent = "La fecha debe ser del año actual.";
@@ -33,7 +34,7 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
 
     // Validación de la hora
     if (!validarHora(timeInput)) {
-        timeError.textContent = "Solo puedes reservar entre las 7:00 AM y las 8:00 PM.";
+        timeError.textContent = "Solo puedes reservar entre las 7:00 AM y las 7:00 PM.";
         valid = false;
     }
 

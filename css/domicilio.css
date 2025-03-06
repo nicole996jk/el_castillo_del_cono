@@ -1,5 +1,32 @@
-.error-message {
-    color: red;
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
+  /* Estilo para los botones */
+  button, .close-btn {
+    width: 100%;  /* Asegura que los botones ocupen todo el ancho disponible */
+    padding: 10px;  /* Espaciado interno para que los botones no se vean tan pequeños */
+    font-size: 16px;  /* Tamaño de la fuente */
+    background-color: #ad4208e4;  /* Color de fondo (puedes cambiarlo) */
+    color: white;  /* Color del texto */
+    border: none;  /* Sin bordes */
+    border-radius: 5px;  /* Bordes redondeados */
+    cursor: pointer;  /* Cambia el cursor cuando el mouse pasa sobre el botón */
+    margin: 10px 0;  /* Margen entre botones */
+  }
+
+  button:hover, .close-btn:hover {
+    background-color: #b17a1a;  /* Cambia el color del fondo al pasar el mouse sobre el botón */
+  }
+
+  /* Estilo para los selects */
+  select {
+    width: 100%;  /* Asegura que los selectores ocupen todo el ancho disponible */
+    padding: 10px;  /* Espaciado interno para que se vean más equilibrados */
+    font-size: 16px;  /* Tamaño de la fuente */
+    margin: 10px 0;  /* Margen entre los selects y otros elementos */
+    border: 1px solid #ccc;  /* Bordes claros */
+    border-radius: 5px;  /* Bordes redondeados */
+  }
+
+  /* Si no deseas que el botón de cerrar ocupe todo el ancho */
+  .close-btn {
+    width: auto;  /* Si deseas que este botón tenga un tamaño más pequeño */
+    padding: 5px;
+  }
