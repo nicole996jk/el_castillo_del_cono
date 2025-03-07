@@ -26,6 +26,7 @@
     <link href="css/style.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/domicilio.css" rel="stylesheet">
+    <link href="dom.css" rel="stylesheet">
     <!-- Incluir SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -299,78 +300,89 @@
     </div>
     
 
-    <!-- Botón flotante con icono de camión de carga -->
-        <button class="pedido-btn" onclick="abrirFormulario()">
-            <i class="fas fa-truck"></i>
-        </button>
-    <!-- Modal del formulario -->
- <div id="modal" class="modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="cerrarFormulario()"> 
+       <!-- Botón flotante con icono de camión de carga -->
+       <button class="pedido-btn" onclick="abrirFormulario()">
+        <i class="fas fa-truck"></i>
+    </button>
+<!-- Modal del formulario -->
+<!-- Modal del formulario -->
+<div id="modal" class="modal">
+<div class="modal-content">
+    <button class="close-btn" onclick="cerrarFormulario()"> 
         <i class="fas fa-times"></i> 
-      </button>
-      <h2>Pedidos</h2>
-      <label for="producto">Producto:</label>
-      <select id="producto" name="producto" required style="width: 78%; font-size: 16px; padding: 7px;">
-        <optgroup label="Cajas de Helado">
-          <option value="Caja de Helado de vainilla con chispas de chocolate">Caja de Helado de vainilla con chispas de chocolate $6.00</option>
-          <option value="Caja de Helado de napolitano">Caja de Helado de napolitano $5.50</option>
-          <option value="Caja de Helado de fresa">Caja de Helado de fresa $5.50</option>
-          <option value="Caja de Helado de chocolate">Caja de Helado de chocolate $5.50</option>
-          <option value="Caja de Helado de chicle">Caja de Helado de chicle $6.25</option>
-          <option value="Caja de Helado de pistacho">Caja de Helado de pistacho     $6.75</option>
-        </optgroup>
-      
-        <optgroup label="Helados de vainilla">
-          <option value="Helado de vainilla en recipiente desechable con galletas">Helado de vainilla en recipiente desechable con galletas. $2.50</option>
-          <option value="Helado de vainilla en recipiente de vidrio con chocolate y fresas">Helado de vainilla en recipiente de vidrio con chocolate y fresas. $6.00</option>
-          <option value="Helado de vainilla doble bola en cono con rayadura de coco.">Helado de vainilla doble bola en cono con rayadura de coco. $1.60</option>
-        </optgroup>
-        <optgroup label="Helados de fresa">
-          <option value="Helado de fresa en recipiente de vidrio con fresas.">Helado de fresa en recipiente de vidrio con fresas. $5.50</option>
-          <option value="Helado de fresa en cono una bola">Helado de fresa en cono una bola $3.75</option>
-          <option value="Helado de fresa en cono una bola">Helado de fresa en cono una bola $1.25</option>
-        </optgroup>
-        <optgroup label="Helados de chocolate">
-          <option value="helado de chocolate en recipiente de vidrio">helado de chocolate en recipiente de vidrio $1.25</option>
-          <option value="Helado de chocolate con chispas de chocolate">Helado de chocolate con chispas de chocolate $4.75</option>
-          <option value="Helado de chocolate en cono con chocolate derretido">Helado de chocolate en cono con chocolate derretido $1.45</option>
-        </optgroup>
-      </select>
-      <div id="productoError" class="error-message"></div>
-  
-      <select id="metodo-entrega" name="metodo-entrega" required style="width: 78%; font-size: 16px; padding: 7px;">
-        <option value="local">Local</option>
-        <option value="domicilio">Domicilio</option>
-      </select>
-  
-      <form id="pedidoForm">
-        <label for="direccion">Dirección de Entrega:</label>
-        <textarea id="direccion" name="direccion" placeholder="Ejemplo: Calle, Distrito o dirección de casa" required></textarea>
-        <div id="direccionError" class="error-message"></div>
-  
-        <label for="telefono">Teléfono de Contacto:</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Número" required>
-        <div id="telefonoError" class="error-message"></div>
-  
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" min="1" placeholder="Seleccione o digite una cantidad" required>
-        <div id="cantidadError" class="error-message"></div>
-  
-        <label for="metodo-pago">Método de Pago:</label>
-        <select id="metodo-pago" name="metodo-pago" required>
-          <option value="tarjeta">Tarjeta</option>
-          <option value="paypal">PayPal</option>
-          <option value="efectivo">Efectivo</option>
-        </select>
-        <div id="metodoPagoError" class="error-message"></div>
-  
-        <button type="submit">Realizar Pedido</button>
-      </form>
-    </div>
-  </div>
-  <!-- Modal del formulario --> 
+    </button>
+    <h2>Pedidos</h2>
+    
+    <!-- Formulario -->
+    <div id="formularioContainer">
+        <form id="pedidoForm">
+            <div id="productosContainer">
+                <div class="producto">
+                    <label>Producto:</label>
+                    <select class="productoSelect" required onchange="actualizarPrecio(this)">
+                        <option value="" disabled selected>Seleccione un producto</option>
+                        <option value="Helado de vainilla en recipiente desechable con galletas" data-precio="2.50">Helado de vainilla en recipiente desechable con galletas</option>
+                        <option value="Helado de vainilla en recipiente de vidrio con chocolate y fresa" data-precio="6.00">Helado de vainilla en recipiente de vidrio con chocolate y fresa</option>
+                        <option value="Helado de vainilla doble bola en cono con ralladura de coco" data-precio="1.60">Helado de vainilla doble bola en cono con ralladura de coco</option>
+                        <option value="Helado de fresa en recipiente de vidrio con fresas" data-precio="5.50">Helado de fresa en recipiente de vidrio con fresas</option>
+                        <option value="Helado de fresa en recipiente de vidrio" data-precio="3.75">Helado de fresa en recipiente de vidrio</option>
+                        <option value="Helado de fresa en cono una bola" data-precio="1.25">Helado de fresa en cono una bola</option>
+                        <option value="Helado de chocolate en recipiente de vidrio" data-precio="4.00">Helado de chocolate en recipiente de vidrio</option>
+                        <option value="Helado de chocolate con chispas de chocolate" data-precio="4.75">Helado de chocolate con chispas de chocolate</option>
+                        <option value="Helado de chocolate en cono con chocolate derretido" data-precio="1.45">Helado de chocolate en cono con chocolate derretido</option>
+                        <option value="Caja de helado napolitano" data-precio="5.50">Caja de helado napolitano</option>
+                        <option value="Caja de helado de vainilla con chispas de chocolate" data-precio="6.00">Caja de helado de vainilla con chispas de chocolate</option>
+                        <option value="Caja de helado de fresa" data-precio="5.50">Caja de helado de fresa</option>
+                        <option value="Caja de helado de chocolate" data-precio="5.50">Caja de helado de chocolate</option>
+                        <option value="Caja de helado de chicle" data-precio="6.25">Caja de helado de chicle</option>
+                        <option value="Caja de helado de pistacho" data-precio="6.75">Caja de helado de pistacho</option>
+                    </select>
+                    <label>Precio:</label>
+                    <input type="text" class="precio" readonly>
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad" min="1" required oninput="calcularTotal()">
+                    <button type="button" class="eliminarProducto hidden" onclick="eliminarProducto(this)">Eliminar</button>
+                </div>
+            </div>
+            
+            <button type="button" id="agregarProducto">Agregar otro producto</button>
 
+            <label for="metodoEntrega">Método de Entrega:</label>
+            <select id="metodoEntrega" name="metodoEntrega" required onchange="mostrarCampos()">
+                <option value="local">En Local</option>
+                <option value="domicilio">A Domicilio</option>
+            </select>
+        
+            
+            <div id="datosDomicilio" class="hidden">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion">
+                <span id="errorDireccion" class="error-message"></span>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono">
+                <span id="errorTelefono" class="error-message"></span>
+            </div>
+
+            <label for="metodoPago">Método de Pago:</label>
+            <select id="metodoPago" name="metodoPago" required>
+                <option value="" disabled selected>Seleccione un método de pago</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="paypal">PayPal</option>
+                <option value="efectivo">Efectivo</option>
+                <option value="contraentrega">Contraentrega</option>
+            </select>
+
+            <h3>Total a Pagar: <span id="total"> $0.00 </span></h3>
+            <button type="submit">Realizar Pedido</button>
+        </form>
+    </div>
+    
+</div>
+</div>
+
+
+
+<!-- Modal del formulario -->
 
    <!-- Footer Start -->
    <div class="container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom px-0 position-relative overlay-top" 
@@ -395,7 +407,7 @@
             <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Horario de atención</h4>
             <div>
                 <h6 class="text-white text-uppercase">Lunes - Domingo</h6>
-                <p>7.00 AM - 8.00 PM</p>
+                <p>7.00 AM - 9.00 PM</p>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">

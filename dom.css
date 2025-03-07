@@ -1,0 +1,88 @@
+/* Estilos generales del formulario */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+}
+
+/* Alineación de los campos en una columna */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Contenedor de cada producto */
+.producto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Ajuste de los inputs y selects */
+select, input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botón de agregar otro producto */
+#agregarProducto {
+    background-color: #9d5d03;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#agregarProducto:hover {
+    background-color: #9d5d03;
+}
+
+/* Botón de realizar pedido */
+button[type="submit"] {
+    background-color: #9d5d03;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #9d5d03;
+}
+
+/* Estilos para el total a pagar */
+h3 {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Mejor alineación de los métodos de entrega y pago */
+#metodoEntrega, #metodoPago {
+    width: 100%;
+}
+
+/* Ajuste de los botones */
+button {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+#formularioContainer {
+    max-height: 500px;  /* Establece la altura máxima del formulario */
+    overflow-y: auto;   /* Muestra la barra de desplazamiento vertical si el contenido excede el área */
+    padding-right: 20px; /* Da un pequeño margen para que la barra de desplazamiento no tape el contenido */
+}
