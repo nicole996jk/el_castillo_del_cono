@@ -162,12 +162,7 @@ function validarFormulario(event) {
     
 }
 
-Swal.fire({
-    title: '¡Pedido con éxito!',
-    text: 'Gracias por tu compra. Te contactaremos pronto.',
-    icon: 'success',
-    confirmButtonText: 'Aceptar'
-});
+
 
 // Llamada al validarFormulario cuando se intenta enviar el formulario
 document.getElementById("pedidoForm").addEventListener("submit", validarFormulario);
