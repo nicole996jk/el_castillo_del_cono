@@ -116,35 +116,43 @@
                     <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
                         <h1 class="text-white mb-4 mt-5">Reserva tu mesa</h1>
                         <form id="reservationForm" class="mb-5">
-                           
                             <div class="form-group">
                                 <div class="date" id="date" data-target-input="nearest">
                                     <input type="text" class="form-control bg-white border-primary p-4 datetimepicker-input" placeholder="Fecha" data-target="#date" data-toggle="datetimepicker" required="required" id="dateInput"/>
-                                    <div id="dateError" class="text-danger mt-2"></div> <!-- Error mensaje -->
+                                    <div id="dateError" class="text-danger mt-2"></div> <!-- Mensaje de error -->
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="time" id="time" data-target-input="nearest">
                                     <input type="text" class="form-control bg-white border-primary p-4 datetimepicker-input" placeholder="Tiempo" data-target="#time" data-toggle="datetimepicker" required="required" id="timeInput"/>
-                                    <div id="timeError" class="text-danger mt-2"></div> <!-- Error mensaje -->
+                                    <div id="timeError" class="text-danger mt-2"></div> <!-- Mensaje de error -->
                                 </div>
                             </div>
                             <div class="form-group">
-                                <select class="custom-select bg-white border-primary px-4" style="height: 49px;" required="required" id="personsSelect">
-                                    <option value="" disabled selected>Selecciona la cantidad de personas</option>
-                                    <option value="1">1 Persona</option>
-                                    <option value="2">2 Personas</option>
-                                    <option value="3">3 Personas</option>
-                                    <option value="4">4 Personas</option>
-                                    <option value="5">5 Personas</option>
-                                    <option value="6">Más de 5 personas</option>
-                                    <option value="10">Más de 10 personas</option>
+                                <select class="custom-select bg-white border-primary px-4" style="height: 49px;" required="required" id="mesaPreference">
+                                    <option value="" disabled selected>Selecciona tu preferencia de mesa</option>
+                                    <option value="1">Mesa para 1 Persona (Interior) - $5</option>
+                                    <option value="2">Mesa para 1 Persona (Exterior) - $7.50</option>
+                                    <option value="3">Mesa para 2 Personas (Interior) - $10</option>
+                                    <option value="4">Mesa para 2 Personas (Exterior) - $12.50</option>
+                                    <option value="5">Mesa para 3 Personas (Interior) - $15</option>
+                                    <option value="6">Mesa para 3 Personas (Exterior) - $17.50</option>
+                                    <option value="7">Mesa para 4 Personas (Interior) - $20</option>
+                                    <option value="8">Mesa para 4 Personas (Exterior) - $20.50</option>
+                                    <option value="9">Mesa para 5 Personas (Interior) - $25</option>
+                                    <option value="10">Mesa para 5 Personas (Exterior) - $25.50</option>
                                 </select>
+                                <div id="personsError" class="text-danger mt-2"></div> <!-- Mensaje de error -->
+                            </div>
+                            <!-- Texto opcional si seleccionan más de 10 personas -->
+                            <div id="extraInfo" class="form-group hidden">
+                                <label for="extraInfoInput">Si quiere hacer la reservación para más de 5 personas por favor llame o envíanos un correo.</label>
                             </div>
                             <div>
                                 <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Reservar ahora</button>
                             </div>
                         </form>
+                                                
                     </div>
                 </div>
                 
